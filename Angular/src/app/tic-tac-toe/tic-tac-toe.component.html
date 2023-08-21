@@ -1,0 +1,23 @@
+<div class="game-container">
+  <div *ngIf="winner">
+    <h2>Player {{ winner }} wins!</h2>
+    <button (click)="restartGame()">Restart</button>
+  </div>
+  <div class="board">
+    <div class="row" *ngFor="let row of board; let i = index">
+      <div class="cell" *ngFor="let cell of row; let j = index" (click)="handleClick(i, j)"
+        [ngClass]="{
+          'player-x': cell === 'X',
+          'player-o': cell === 'O',
+          'winning-cell': winner && (
+            (winningDirection === 'horizontal' && i === winningRow) ||
+            (winningDirection === 'vertical' && j === winningCol) ||
+            (winningDirection === 'diagonal-left' && i === j) ||
+            (winningDirection === 'diagonal-right' && i + j === 2)
+          )
+        }">
+        {{ cell }}
+      </div>
+    </div>
+  </div>
+</div>

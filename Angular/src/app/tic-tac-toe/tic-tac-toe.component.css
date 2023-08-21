@@ -1,0 +1,48 @@
+.game-container {
+  text-align: center;
+  margin: 50px auto;
+  background-color: #444;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: fit-content;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  gap: 5px;
+}
+
+.row {
+  display: contents;
+}
+
+.cell {
+  width: 100px;
+  height: 100px;
+  border: 3px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+  cursor: pointer;
+  background-color: #888;
+  transition: all 0.3s;
+}
+
+.cell:hover {
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.5);
+}
+
+.cell.player-x { /* Red color for "X" symbols */
+  color: red;
+}
+
+.cell.player-o { /* Blue color for "O" symbols */
+  color: blue;
+}
+
+.winning-cell {
+  background-color: yellow; /* Color for the winning line */
+}
